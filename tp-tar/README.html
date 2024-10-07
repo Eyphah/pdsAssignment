@@ -1,0 +1,145 @@
+<ul>
+<li><a href="#orgc347ae5">Consignes générales pour le rendu</a></li>
+<li><a href="#org2ed6a5b">Documents autorisés</a></li>
+<li><a href="#orgb4322d7">Comment rédiger vos réponses</a></li>
+<li><a href="#orgfd63fc1">Comment rendre votre programme</a></li>
+<li><a href="#org67d41d6">Exercice 1</a></li>
+<li><a href="#orgbf1b2f8">Question 1 (2 point)</a></li>
+<li><a href="#org6d7f963">Question 2 (2 points)</a></li>
+<li><a href="#org300ad36">Question 3 (3 points)</a></li>
+<li><a href="#orgd9a30d8">Question 4 (2 points)</a></li>
+<li><a href="#org83f0198">Exercice 2</a></li>
+<li><a href="#org764d57c">Question 1 (1 point)</a></li>
+<li><a href="#orgaa69eca">Question 2 (4 points)</a></li>
+<li><a href="#orgbef0b5c">Question 3 (6 points)</a></li>
+</ul>
+<p><a id="orgc347ae5"></a></p>
+<h1>Consignes générales pour le rendu</h1>
+<p><a id="org2ed6a5b"></a></p>
+<h2>Documents autorisés</h2>
+<p>Les documents de cours sont autorisés. Vous pouvez accéder à votre <code>home</code> dir et à son contenu.</p>
+<p>L'usage du téléphone pendant l'examen est <strong>interdit</strong>. Vous n'avez pas accès à internet sur vos machines (sauf pour les adresses <code>https://prof.fil.univ-lille.fr</code> et <code>https://www.fil.univ-lille.fr/</code>).</p>
+<p><a id="orgb4322d7"></a></p>
+<h2>Comment rédiger vos réponses</h2>
+<p>Toutes vos réponses devront être rédigées dans les fichiers <code>answers.c</code> et <code>answers.h</code> qui se trouvent dans les répertoires <code>ex1</code> et <code>ex2</code>.</p>
+<p><strong>ATTENTION</strong> : Il ne faut pas changer le prototypes de fonctions dans <code>answers.h</code>. Vous pouvez modifier <code>main.c</code> pour tester vos programmes, mais aucune des modifications de <code>main.c</code> ne sera prise en compte pour l'évaluation.</p>
+<p>Pour chaque exercice, un exemple de <code>main</code> est écrit dans <code>main.c</code>. Pour tester votre programme il faut donc :</p>
+<ol>
+<li>Compiler avec la commande <code>make</code>.</li>
+<li>Exécuter le programme généré <code>prg</code>.</li>
+</ol>
+<p>Votre devoir sera évalué de manière semi-automatique en utilisant la suite de tests qui se trouve dans le répertoire <code>test</code>. Pour avoir une estimation de votre note, vous pouvez lancer <code>make test</code>.</p>
+<p><a id="orgfd63fc1"></a></p>
+<h2>Comment rendre votre programme</h2>
+<p>Pour rendre votre travail, vous devez déposer un fichier zip du répertoire <code>pds_exam</code> sur :</p>
+<p><a href="https://prof.fil.univ-lille.fr/">https://prof.fil.univ-lille.fr/</a></p>
+<p>Si vous vous trompez, vous pouvez déposer le fichier à nouveau jusqu'à la fin de l'examen, le fichier retenu sera toujours le dernier déposé.</p>
+<p><a id="org67d41d6"></a></p>
+<h1>Exercice 1</h1>
+<p>Une <em>archive</em> est un fichier qui contient d'autres fichiers dans un format spécifique. Dans cet exercice, on s'intéresse à une version simplifiée du format tar, qu'on appellera <code>pdsar</code> pour <em>PDS archive</em>.</p>
+<p>Une archive contient une séquence de fichiers, chacun précédé d'un entête :</p>
+<p><code>c
+struct header {
+   char name[PATH_MAX]; // chemin relatif du fichier
+   int size;            // taille en octets
+};</code></p>
+<p>Par exemple, considérez l'archive <code>myarchive.pdsar</code> qui contient 2 fichiers, <code>toto.txt</code> de 128 octets, et <code>tata.txt</code> de 42 octets. Le fichier <code>myarchive.pdsar</code> est structuré de la manière suivante :</p>
+<ul>
+<li>Tout d'abord, on trouve un entête de taille <code>sizeof(struct header)</code> qui contient les informations sur le fichier <code>toto.txt</code> (chemin et taille) ;</li>
+<li>ensuite, on trouve le 128 octets du fichier <code>toto.txt</code> ;</li>
+<li>ensuite, on trouve une deuxième entête de taille <code>sizeof(struct header)</code> qui contient les informations sur le fichier <code>tata.tx</code> ;</li>
+<li>enfin, on trouve le 42 octets du fichier <code>tata.txt</code>.</li>
+</ul>
+<p>La structure de l'archive est résumé dans la figure suivante (<code>s</code> est égale à <code>sizeof(struct header)</code>).</p>
+<p><img alt="img" src="archive.png" /></p>
+<p>Ce format permet de mémoriser un nombre arbitraire de fichiers dans un seul fichier archive. Dans cet exercice, il s'agit de mettre en oeuvre les fonctions pour manipuler un tel format de fichier.</p>
+<p><a id="orgbf1b2f8"></a></p>
+<h2>Question 1 (2 point)</h2>
+<p>Écrire le code de la fonction <code>list_archive(const char *archive_name)</code> qui affiche la liste de tous les fichiers contenus dans un fichier <code>archive_name()</code>. Pour chaque fichier contenu dans l'archive, la fonction doit afficher seulement son nom. Par exemple, pour <code>myarchive.pdsar</code>, la fonction doit afficher :</p>
+<pre><code>toto.txt
+tata.txt
+</code></pre>
+<p>Si le fichier <code>archive_name</code> n'existe pas, la fonction n'affiche rien et retourne -1.</p>
+<p><strong>ATTENTION</strong> : Pour afficher une chaîne de caractères, utilisez la fonction <code>output_str(char *)</code>.</p>
+<p><a id="org6d7f963"></a></p>
+<h2>Question 2 (2 points)</h2>
+<p>Pour optimiser la recherche d'un fichier dans l'archive, nous allons mémoriser les positions (offsets) des entêtes des fichiers dans un tableau. Nous utiliserons la structure suivante :</p>
+<p><code>c
+struct loffsets {
+    int n_files;             // nombre de fichiers dans l'archive
+    off_t offset[MAX_FILES]; // positions des entêtes
+};</code></p>
+<p>Écrire le code de la fonction <code>generate_offsets(const char *archive_name, struct loffsets *lo)</code> qui ouvre l'archive <code>archive_name</code> et parcourt son contenu, en mémorisant les positions dans la structure pointée par le paramètre <code>lo</code>.</p>
+<p>La fonction retourne -1 si l'archive n'existe pas ou s'il contient plus de <code>MAX_FILES</code> fichiers. La fonction mémorise dans la i-ème case du tableau la position du début de l'entête correspondant à l'i-ème fichier, et dans le champ <code>n_files</code> le nombre de fichiers archivé.</p>
+<p><a id="org300ad36"></a></p>
+<h2>Question 3 (3 points)</h2>
+<p>Écrire le code de la fonction <code>print_file(const char *archive_name, struct loffsets *lo, int n)</code> qui affiche le n-ieme ficher contenu dans l'archive. Cette fonction utilise la structure <code>lo</code> pour afficher seulement le contenu du n-ième fichier sans besoin de parcourir toute l'archive. Si l'archive n'existe pas, la fonction n'affiche rien et retourne -1.</p>
+<p><strong>ATTENTION</strong> : Pour afficher le contenu d'un tableau d'octets, utilisez la fonction <code>output_bytes(char *, int n_octets)</code>.</p>
+<p><a id="orgd9a30d8"></a></p>
+<h2>Question 4 (2 points)</h2>
+<p>Écrire le code de la fonction <code>add_file(const char *archive_name, const char *filename)</code> qui ajoute le fichier <code>filename</code> dans l'archive en dernière position. La fonction retourne -1 si le fichier <code>filename</code> ou le fichier <code>archive_name</code> n'existent pas.</p>
+<p><a id="org83f0198"></a></p>
+<h1>Exercice 2</h1>
+<p>La fonction <code>count_chars(const char *table, int n, char c)</code> compte le nombre d'occurrences du caractère <code>c</code> dans le tableau <code>table</code> de <code>n</code> octets. Voici le code de la fonction :</p>
+<p><code>c
+int count_chars(const char *table, int n, char c)
+{
+    int cnt = 0;
+    for (int i=0; i&lt;n; i++)
+        if (table[i] == c) cnt++;
+    return cnt;
+}</code></p>
+<p>Nous voulons utiliser cette fonction pour compter le nombre de lignes dans un fichier texte.</p>
+<p><a id="org764d57c"></a></p>
+<h2>Question 1 (1 point)</h2>
+<p>Écrire le code d'une fonction <code>count_lines()</code> qui retourne le nombre de caractères <code>'\n'</code> dans un fichier. La fonction doit lire le fichier en blocs de <code>TAILLE</code> octets, appeler la fonction <code>count_chars()</code> sur chaque bloc et faire la somme des valeurs de retour.</p>
+<p>```c</p>
+<h1>define TAILLE 32</h1>
+<p>int count_lines(const char *filename);
+```</p>
+<p><a id="orgaa69eca"></a></p>
+<h2>Question 2 (4 points)</h2>
+<p>Écrire le code de la fonction <code>void* mt_count_chars(void*)</code> contenant le code du thread. Vous supposerez qu'elle prend en argument un pointeur vers la structure de données suivante :</p>
+<p><code>c
+struct param {
+    const char table[TAILLE];
+    int n;
+    char c;
+    int cnt;
+};</code></p>
+<p>Elle appellera la fonction <code>count_chars()</code> pour compter le nombre de caractères dans un bloc.</p>
+<p>Écrire ensuite la fonction <code>int mt_count_lines(const char *filename);</code> qui crée le nombre de threads nécessaire pour compter le nombre de lignes dans un fichier <code>filename</code> et retourne le total.</p>
+<p><a id="orgbef0b5c"></a></p>
+<h2>Question 3 (6 points)</h2>
+<p>Nous voulons maintenant limiter le nombre de threads à 4. Nous allons utiliser la stratégie suivante. D'abord, il faut compléter la structure suivante</p>
+<p><code>c
+struct param4 {
+    const char table[TAILLE];
+    int n;
+    char c;
+    int cnt;
+    int end; // 0: il y a encore du travail ; 1: fin du travail
+    // TODO : ajouter les variables pour la synchronisation
+};</code></p>
+<p>Après, on écrit le code des threads. Chaque thread fait une boucle où :</p>
+<ul>
+<li>il attend que les données soient prêtes dans la structure <code>struct param4</code> ;</li>
+<li>si <code>end</code> est égal à 1, il termine ;</li>
+<li>sinon, il fait le calcul et signale que le résultat est prêt ;</li>
+</ul>
+<p>La fonction <code>mt_count_lines_4(const char *filename)</code> :</p>
+<ul>
+<li>crée les 4 structures <code>struct param4</code> et les 4 threads correspondants ;</li>
+<li>dans une boucle :<ul>
+<li>lit les données dans les 4 structures ;</li>
+<li>S'il n'y a plus de données à lire, il signale la fin au thread en utilisant le champ <code>end</code> dans la structure, puis attend leur terminaison.</li>
+<li>sinon, il signale les 4 threads, attend que les résultats soient calculés, puis somme les résultats au total ;</li>
+</ul>
+</li>
+</ul>
+<p>Pour répondre à la question, il faut :</p>
+<ul>
+<li>Compléter la structure <code>struct param4</code> avec les variables de synchronisation ;</li>
+<li>Écrire le code des threads dans la fonction <code>mt_count_chars_4()</code> ;</li>
+<li>Écrire le code de la fonction principale <code>mt_count_lines_4()</code>.</li>
+</ul>

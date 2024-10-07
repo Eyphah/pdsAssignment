@@ -1,0 +1,74 @@
+% Created 2024-09-08 dim. 18:19
+% Intended LaTeX compiler: pdflatex
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[french]{babel}
+\usepackage{cours}
+\usepackage{pmboxdraw}
+\setcounter{secnumdepth}{2}
+\author{Giuseppe Lipari et toute l'équipe pédagogique}
+\date{\today}
+\title{PDS how to}
+\hypersetup{
+ pdfauthor={Giuseppe Lipari et toute l'équipe pédagogique},
+ pdftitle={PDS how to},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.1 (Org mode 9.5.5)}, 
+ pdflang={French}}
+\begin{document}
+
+\maketitle
+
+\section{Comment tester vos réponses}
+\label{sec:org3677453}
+
+Pour compiler les tests, saisissez la commande 
+
+\lstset{language=sh,label= ,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
+make test
+\end{lstlisting}
+
+Si vous voulez lancer les tests, saisissez la commande :
+\lstset{language=sh,label= ,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
+make runtests
+\end{lstlisting}
+
+Si vous voulez simplement lancer un sous-ensemble des tests, vous
+devez d'abord vous déplacer dans le repertoire \texttt{test}, ensuite lancer
+la commande \texttt{test\_ex1} pour les tests de l'exercice 1:
+
+\lstset{language=sh,label= ,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
+cd test && ./test_ex1
+\end{lstlisting}
+
+Si vous désirez afficher la liste des tests sans les lancer, tapez :
+
+\lstset{language=sh,label= ,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
+./test_ex1 -l -v
+\end{lstlisting}
+
+Si vous souhaitez lancer seulement les tests relatifs à la question 2
+de l'exercice 1, tapez :
+
+\lstset{language=sh,label= ,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
+./test_ex1 ex1.q2 
+\end{lstlisting}
+
+Des commandes similaires sont disponibles pour l'exercice 2.
+\end{document}

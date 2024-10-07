@@ -1,0 +1,19 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Wextra",
+      "-Wno-unused-parameter",
+      "-I",
+      "../lib",
+      "-c",
+      "-o",
+      "test_ex2.o",
+      "test_ex2.c"
+    ],
+    "directory": "/home/lipari/Documents/corsi/2024-2025/PDS/pds-tp/tp-tar/test",
+    "file": "/home/lipari/Documents/corsi/2024-2025/PDS/pds-tp/tp-tar/test/test_ex2.c",
+    "output": "/home/lipari/Documents/corsi/2024-2025/PDS/pds-tp/tp-tar/test/test_ex2.o"
+  }
+]

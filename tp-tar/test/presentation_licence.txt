@@ -1,0 +1,104 @@
+ La licence mention Informatique
+
+La formation proposée par la licence d'informatique de l'Université de
+Lille permet l'apprentissage des aspects tant théoriques qu'appliqués
+de l'informatique. Les titulaires de cette licence disposent de
+solides connaissances qui couvrent un large spectre de la discipline :
+divers paradigmes de programmation, bases de données, algorithmique,
+réseaux, etc.
+
+La formation permet d'acquérir des compétences et méthodes de travail
+: analyser un problème, appliquer une solution, rechercher de
+l'information, gérer son temps, faire un planning, travailler en
+groupe, etc. et des compétences transversales indispensables à toute
+activité professionnelle future : anglais, savoir communiquer à
+l'écrit comme à l'oral. L'étudiant est également accompagné dans
+l'élaboration d'un projet professionnel et d'un projet de formation
+lui permettant de découvrir des secteurs d'activité, des métiers ou
+encore divers domaines disciplinaires.
+
+La licence se conclut par un stage obligatoire de 3 mois qui permet à
+l'étudiant de confronter les compétences et connaissances acquises à
+un contexte d'entreprise.  Parcours
+
+-  En première année, le portail Mathématiques-Informatique (MI) permet à l'étudiant de découvrir progressivement l'informatique et plus particulièrement la programmation.
+- La mention informatique commence à proprement parlé en seconde année de licence où l'enseignement disciplinaire prend une place prédominante.
+- En troisième année de licence, deux parcours sont proposés aux étudiants, bâtis autour d'un large socle commun, ils ont cependant chacun leur objectif :
+  - le parcours INFO
+  -  le parcours MIAGE
+
+Perspectives et débouchés
+
+La licence mention informatique, comme toute licence généraliste, a
+pour vocation première d'amener à l'issue des six semestres de
+formation, l'étudiant à un niveau de connaissances et de compétences
+lui permettant de suivre dans les meilleures conditions possibles un
+master mention Informatique, mention MIAGE, mention BioInformatique,
+mention Data Science ou un master MEEF, pour préparer le CAPES
+d'Informatique, qui sont les débouchés et objectifs naturels de cette
+Licence.
+
+Cependant l'étudiant dont c'est le projet, conforté par le stage de
+fin de cursus, dispose de compétences et connaissances lui permettant
+d'envisager une insertion professionnelle à l'issue de la licence, par
+exemple en tant qu'analyste-programmeur, développeur web, webmaster,
+informaticien(ne) de développement que ce soit en ESN (SSII), agence
+web/multimédia, au sein d'une direction des systèmes informatiques
+(DSI) ou chez un éditeur de logiciels.
+
+
+Semestre 5 2023-2024
+
+Rentrée
+
+- Rentrée le lundi 4 septembre 2023, bâtiment M1 amphi Galois, 10h15 (plan)
+- Veillez à vous inscrire administrativement à l'Université avant la rentrée.
+- Début des cours le même jour à 13h00 lundi 4 septembre (voir onglet "Agenda en ligne")
+
+Les étudiants rejoignant la licence d'informatique en L3 sans avoir
+suivi la L2 de l'Université de Lille doivent se préparer avant la
+rentrée en consultant le portail pédagogique de L2 et en travaillant
+les notions qu'ils n'auraient pas approfondies dans leur cursus
+antérieur. En particulier les langages C (y compris pointeurs et
+allocation dynamique de mémoire, c.f. liens dans l'onglet Documents),
+Java et python doivent être vus, ainsi que l'algorithmique du S4 et
+les bases de données.
+
+Le cinquième semestre de la licence mention informatique parcours INFO
+est ouvert de plein droit aux étudiants ayant validé les 120 crédits
+des 4 premiers semestres à Lille. Il est également ouvert, après
+validation d'acquis des études, aux étudiants ayant un DUT
+informatique, un BTS informatique, une L2 informatique d'une autre
+université ou un diplôme étranger compatible.  Enseignements
+
+Les enseignements du semestre sont répartis en Blocs de Connaissances
+et de Compétences (BCC) :
+
+- BCC 2 : Développement Personnel et Professionnel
+  - Anglais (3 ECTs)
+  - Projet de l'Etudiant (PE) (3 ECTs) suivant le parcours :
+
+  - Démarche Scientifique (DES) : parcours classique
+  - Programmes scolaires et questions vives : parcours métiers de l'enseignement
+
+- BCC 3 : Faire un choix de modèles et algorithmes adaptés
+  - Modèles Linéaires (ML) (3 ECTs)
+  - Graphes (3 ECTs)
+- BCC 4 : Mise en oeuvre de langages de programmation
+  - Conception Orienté Objet (COO) (3 ECTs)
+  - Programmation Fonctionnelle (PF) (6 ECTs)
+  - Interaction Homme-Machine (IHM) (3 ECTs)
+- BCC 5 : Appréhender des architectures matérielles et logicielles
+  - Programmation des Systèmes (PDS) (3 ECTs)
+  - Réseaux 1 (RSX1) (3 ECTs)
+
+Validation
+
+La validation du semestre entraîne l'acquisition de 30 ECTS. Les
+conditions de validation du semestre sont définies dans la section 4
+du règlement des études (bientôt disponible). L'attention des
+étudiants est également attirée sur la section 4.2.3 qui concerne les
+conditions de réinscription.  Remarques aux redoublants
+
+- En début d'année universitaire, les résultats obtenus dans les années précédentes dans les UEs non validées sont effacées si il n'y a pas eu obtention du semestre.
+- Les notes des UEs acquises sont conservées.

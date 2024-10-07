@@ -1,0 +1,44 @@
+#+options: toc:nil num:2 ^:nil
+#+latex_class_option: french
+#+latex_header: \usepackage{cours}
+#+latex_header: \usepackage{pmboxdraw}
+#+language: fr
+
+#+TITLE: PDS how to
+#+author: Giuseppe Lipari et toute l'équipe pédagogique
+
+* Comment tester vos réponses
+
+Pour compiler les tests, saisissez la commande 
+
+#+begin_src sh
+make test
+#+end_src
+
+Si vous voulez lancer les tests, saisissez la commande :
+#+begin_src sh
+make runtests
+#+end_src
+
+Si vous voulez simplement lancer un sous-ensemble des tests, vous
+devez d'abord vous déplacer dans le repertoire =test=, ensuite lancer
+la commande =test_ex1= pour les tests de l'exercice 1:
+
+#+begin_src sh
+cd test && ./test_ex1
+#+end_src
+  
+Si vous désirez afficher la liste des tests sans les lancer, tapez :
+
+#+begin_src sh
+./test_ex1 -l -v
+#+end_src
+
+Si vous souhaitez lancer seulement les tests relatifs à la question 2
+de l'exercice 1, tapez :
+
+#+begin_src sh
+./test_ex1 ex1.q2 
+#+end_src
+
+Des commandes similaires sont disponibles pour l'exercice 2.
